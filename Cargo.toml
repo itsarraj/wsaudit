@@ -1,0 +1,33 @@
+[package]
+name = "wsaudit"
+version = "0.1.0"
+edition = "2021"
+description = "Audits a WebSocket endpoint for Cross-Site WebSocket Hijacking (CSWSH) and RFC 6455 compliance"
+license = "MIT"
+authors = ["Animesh Raj <animesh080808@gmail.com>"]
+repository = "https://github.com/itsarraj/wsaudit"
+readme = "README.md"
+keywords = ["websocket", "security", "cswsh", "audit", "fuzzer"]
+categories = ["command-line-utilities", "development-tools"]
+
+[lib]
+name = "wsaudit"
+path = "src/lib.rs"
+
+[[bin]]
+name = "wsaudit"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.24"
+tungstenite = "0.24"
+colored = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+url = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
